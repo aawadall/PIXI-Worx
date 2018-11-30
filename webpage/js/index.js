@@ -1,8 +1,8 @@
 window.onload = function () {
 
-    import * as PIXI from './pixi'
+    //import * as PIXI from './pixi'
 
-    console.debug('Imported PIXI');
+    //console.debug('Imported PIXI');
 
     let app = new PIXI.Application({
         width: 256,
