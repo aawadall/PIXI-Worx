@@ -11,8 +11,10 @@ window.onload = function () {
     });
 
     app.renderer.backgroundColor = 0x061639; 
-    
+
     let pixiContainer = document.getElementById("pixi-container");
     pixiContainer.appendChild(app.view);
 
+    let texture = PIXI.utils.TextureCache["img/sprite0.png"];
+    let sprite = new PIXI.Sprite(texture);
 }
