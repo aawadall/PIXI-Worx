@@ -24,10 +24,10 @@ window.onload = function () {
     pixiContainer.appendChild(app.view);
 
     loader
-        .add("img/sprite01.png")
+        .add("img/sprite0.png")
         .load(setup);
     function setup() {
-        let sprite = new Sprite(resources["img/sprite01.png"].texture);
+        let sprite = new Sprite(resources["img/sprite0.png"].texture);
         app.stage.addChild(sprite);
     }
     
