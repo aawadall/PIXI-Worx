@@ -11,19 +11,22 @@
 
 <body class="">
     <div class="wrapper">
-      
-
         <link rel="import" href="./header.html">
-
-        <div class="message">
-            
-            <div class="text">
-                <h1>Experiment 1</h1>
-                <h4>Embedded script, attempt to load sprite inside page</h4>
-            </div>
-        </div>
+        <script type="module" src="../js/pixi.min.js"></script>
         <div id="pixi-container">
+            <script>
+                let app = new PIXI.Application({
+                    width: 256, 
+                    height: 256,                       
+                    antialiasing: true, 
+                    transparent: false, 
+                    resolution: 1
+                });
 
+                let container = document.getElementById("pixi-container");
+
+                container.appendChild(app.view);
+            </script>
         </div>
     </div>
 
@@ -31,7 +34,7 @@
         <p class="footer-contents"> Footer placeholder
         </p>
     </footer>
-    <script type="module" src="../js/pixi.min.js"></script>
+    
     <script src="../js/set-background.js"></script>
 </body>
 
