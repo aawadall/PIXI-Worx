@@ -24,7 +24,7 @@ window.onload = function () {
     pixiContainer.appendChild(app.view);
 
     loader
-        .add("sprite0.png")
+        .add("img/sprite0.png")
         .load(setup);
     function setup() {
         let sprite = new Sprite(resources["sprite0.png"].texture);
