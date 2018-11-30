@@ -7,3 +7,5 @@ let app = new PIXI.Application({
     transparent: false,
     resolution: 1
 });
+
+document.body.appendChild(app.view);
