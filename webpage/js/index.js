@@ -6,7 +6,7 @@ window.onload = function () {
         resources = PIXI.resources,
         Sprite = PIXI.Sprite;
 
-    console.debug("DEBUG");
+    console.debug("DEBUG 2");
     //console.debug("Version: " + version);
 
     let app = new Application({
@@ -28,7 +28,7 @@ window.onload = function () {
         .load(setup);
 
     console.debug(resources);
-    
+
     function setup() {
         let sprite = new Sprite(resources["img/sprite0.png"].texture);
         app.stage.addChild(sprite);
