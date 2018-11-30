@@ -24,13 +24,13 @@ window.onload = function () {
     pixiContainer.appendChild(app.view);
 
     loader
-        .add("img/sprite0.png")
+        .add("./sprite0.png")
         .load(setup);
 
     console.debug(resources);
 
     function setup() {
-        let sprite = new Sprite(resources["img/sprite0.png"].texture);
+        let sprite = new Sprite(resources["./sprite0.png"].texture);
         app.stage.addChild(sprite);
     }
     
