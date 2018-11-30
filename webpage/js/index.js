@@ -1,8 +1,6 @@
 window.onload = function () {
 
-    //import * as PIXI from './pixi'
-
-    //console.debug('Imported PIXI');
+    //import * as PIXI  from 'pixi';
 
     let app = new PIXI.Application({
         width: 256,
@@ -12,6 +10,8 @@ window.onload = function () {
         resolution: 1
     });
 
+    app.renderer.backgroundColor = 0x061639; 
+    
     let pixiContainer = document.getElementById("pixi-container");
     pixiContainer.appendChild(app.view);
 
