@@ -31,13 +31,13 @@ window.onload = function () {
     */
     //console.debug(resources);
 
-    function setup() {
+    //function setup() {
        // let sprite = new Sprite(resources["http://ec2-35-183-234-23.ca-central-1.compute.amazonaws.com/img/sprite0.png"].texture);
         sprite0.x = 100;
         sprite0.y = 100;
         sprite0.scale.set(0.5, 0.5);
         app.stage.addChild(sprite0);
-    }
+    //}
     
     
 }
