@@ -1,5 +1,7 @@
 import * as PIXI from './pixi'
 
+console.debug('Imported PIXI');
+
 let app = new PIXI.Application({
     width: 256,
     height: 256,
@@ -9,3 +11,4 @@ let app = new PIXI.Application({
 });
 
 document.body.appendChild(app.view);
+
