@@ -25,14 +25,14 @@ window.onload = function () {
 
     var sprite0 = PIXI.Sprite.fromImage("http://ec2-35-183-234-23.ca-central-1.compute.amazonaws.com/img/sprite0.png");
     loader
-        .add("./sprite0.png")
+        .add("http://ec2-35-183-234-23.ca-central-1.compute.amazonaws.com/img/sprite0.png")
         .load(setup);
 
     //console.debug(resources);
 
     function setup() {
-        //let sprite = new Sprite(resources["./sprite0.png"].texture);
-        app.stage.addChild(sprite0);
+        let sprite = new Sprite(resources["http://ec2-35-183-234-23.ca-central-1.compute.amazonaws.com/img/sprite0.png"].texture);
+        app.stage.addChild(sprite);
     }
     
     
