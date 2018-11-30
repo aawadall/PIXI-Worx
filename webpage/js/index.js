@@ -24,18 +24,19 @@ window.onload = function () {
     pixiContainer.appendChild(app.view);
 
     var sprite0 = PIXI.Sprite.fromImage("http://ec2-35-183-234-23.ca-central-1.compute.amazonaws.com/img/sprite0.png");
+    /*
     loader
         .add("http://ec2-35-183-234-23.ca-central-1.compute.amazonaws.com/img/sprite0.png")
         .load(setup);
-
+    */
     //console.debug(resources);
 
     function setup() {
-        let sprite = new Sprite(resources["http://ec2-35-183-234-23.ca-central-1.compute.amazonaws.com/img/sprite0.png"].texture);
-        sprite.x = 100;
-        sprite.y = 100;
-        sprite.scale.set(0.5, 0.5);
-        app.stage.addChild(sprite);
+       // let sprite = new Sprite(resources["http://ec2-35-183-234-23.ca-central-1.compute.amazonaws.com/img/sprite0.png"].texture);
+        sprite0.x = 100;
+        sprite0.y = 100;
+        sprite0.scale.set(0.5, 0.5);
+        app.stage.addChild(sprite0);
     }
     
     
