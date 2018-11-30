@@ -1,14 +1,17 @@
-import * as PIXI from './pixi'
+window.onload = function () {
 
-console.debug('Imported PIXI');
+    import * as PIXI from './pixi'
 
-let app = new PIXI.Application({
-    width: 256,
-    height: 256,
-    antialias: true,
-    transparent: false,
-    resolution: 1
-});
+    console.debug('Imported PIXI');
 
-document.body.appendChild(app.view);
+    let app = new PIXI.Application({
+        width: 256,
+        height: 256,
+        antialias: true,
+        transparent: false,
+        resolution: 1
+    });
 
+    document.body.appendChild(app.view);
+
+}
