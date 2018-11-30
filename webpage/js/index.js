@@ -7,7 +7,7 @@ window.onload = function () {
         Sprite = PIXI.Sprite;
 
     console.debug("DEBUG");
-    console.debug("Version: " + version);
+    //console.debug("Version: " + version);
 
     let app = new Application({
         width: 256,
