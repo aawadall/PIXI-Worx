@@ -11,8 +11,8 @@
 
 <body class="">
     <div class="wrapper">
-        <a href="../index.html">Home</a>
-        <script type="module" src="../js/pixi.min.js"></script>
+        <a href="index.html">Home</a>
+        <script type="module" src="js/pixi.min.js"></script>
         <div id="pixi-container">
             <script>
                 let app = new PIXI.Application({
@@ -28,11 +28,11 @@
                 container.appendChild(app.view);
 
                 PIXI.loader
-                    .add("../img/sprite0.png")
+                    .add("img/sprite0.png")
                     .load(setup);
                 
                 function setup() {
-                    let sprite = new PIXI.Sprite(PIXI.loader.resources["../img/sprite0.png"].texture);
+                    let sprite = new PIXI.Sprite(PIXI.loader.resources["img/sprite0.png"].texture);
 
                     sprite.x = 100;
                     sprite.y = 100;
@@ -50,7 +50,7 @@
         </p>
     </footer>
     
-    <script src="../js/set-background.js"></script>
+    <script src="js/set-background.js"></script>
 </body>
 
 </html>
