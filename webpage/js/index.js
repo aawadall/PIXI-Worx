@@ -27,7 +27,7 @@ window.onload = function () {
         .add("img/sprite0.png")
         .load(setup);
     function setup() {
-        let sprite = new Sprite(resources["sprite0.png"].texture);
+        let sprite = new Sprite(resources["img/sprite0.png"].texture);
         app.stage.addChild(sprite);
     }
     
