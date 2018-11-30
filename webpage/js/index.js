@@ -6,7 +6,7 @@ window.onload = function () {
         resources = PIXI.resources,
         Sprite = PIXI.Sprite;
 
-    console.debug("DEBUG 2");
+    console.debug("DEBUG 3");
     //console.debug("Version: " + version);
 
     let app = new Application({
