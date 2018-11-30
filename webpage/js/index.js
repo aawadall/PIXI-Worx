@@ -1,11 +1,15 @@
 window.onload = function () {
 
-    //import * as PIXI  from 'pixi';
+    // Aliases
+    let Application = PIXI.Application,
+        loader = PIXI.loader,
+        resources = PIXI.resources,
+        Sprite = PIXI.Sprite;
 
     let config = require('./config.json');
     console.debug("Version: " + config.version);
-    
-    let app = new PIXI.Application({
+
+    let app = new Application({
         width: 256,
         height: 256,
         antialias: true,
@@ -15,11 +19,17 @@ window.onload = function () {
 
     app.renderer.backgroundColor = 0x061639; 
 
+    // Append Canvas to Page 
     let pixiContainer = document.getElementById("pixi-container");
     pixiContainer.appendChild(app.view);
 
-    let texture = PIXI.utils.TextureCache["img/sprite0.png"];
-    let sprite = new PIXI.Sprite(texture);
-
-    app.stage.addChild(sprite);
+    loader
+        .add("../img/sprite01.png")
+        .load(setup);
+    function setup() {
+        let sprite = new Sprite(resources["../img/sprite01.png"].texture);
+        app.stage.addChild(sprite);
+    }
+    
+    
 }
