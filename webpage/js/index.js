@@ -12,6 +12,7 @@ window.onload = function () {
         resolution: 1
     });
 
-    document.body.appendChild(app.view);
+    let pixiContainer = document.getElementById("pixi-container");
+    pixiContainer.appendChild(app.view);
 
 }
