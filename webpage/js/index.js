@@ -17,4 +17,6 @@ window.onload = function () {
 
     let texture = PIXI.utils.TextureCache["img/sprite0.png"];
     let sprite = new PIXI.Sprite(texture);
+
+    app.stage.addChild(sprite);
 }
