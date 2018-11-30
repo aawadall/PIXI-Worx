@@ -2,6 +2,9 @@ window.onload = function () {
 
     //import * as PIXI  from 'pixi';
 
+    let config = require('./config.json');
+    console.debug("Version: " + config.version);
+    
     let app = new PIXI.Application({
         width: 256,
         height: 256,
