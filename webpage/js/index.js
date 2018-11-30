@@ -23,7 +23,7 @@ window.onload = function () {
     let pixiContainer = document.getElementById("pixi-container");
     pixiContainer.appendChild(app.view);
 
-    var sprite0 = PIXI.Sprite.fromImage("https://crossorigin.me/http://ec2-35-183-234-23.ca-central-1.compute.amazonaws.com/img/sprite0.png");
+    var sprite0 = PIXI.Sprite.fromImage("http://ec2-35-183-234-23.ca-central-1.compute.amazonaws.com/img/sprite0.png");
     loader
         .add("./sprite0.png")
         .load(setup);
