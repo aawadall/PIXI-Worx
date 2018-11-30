@@ -23,15 +23,16 @@ window.onload = function () {
     let pixiContainer = document.getElementById("pixi-container");
     pixiContainer.appendChild(app.view);
 
+    var sprite0 = PIXI.Sprite.fromImage("https://crossorigin.me/http://ec2-35-183-234-23.ca-central-1.compute.amazonaws.com/img/sprite0.png");
     loader
         .add("./sprite0.png")
         .load(setup);
 
-    console.debug(resources);
+    //console.debug(resources);
 
     function setup() {
-        let sprite = new Sprite(resources["./sprite0.png"].texture);
-        app.stage.addChild(sprite);
+        //let sprite = new Sprite(resources["./sprite0.png"].texture);
+        app.stage.addChild(sprite0);
     }
     
     
