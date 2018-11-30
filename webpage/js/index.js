@@ -6,7 +6,7 @@ window.onload = function () {
         resources = PIXI.resources,
         Sprite = PIXI.Sprite;
 
-    let config = require('./config.json');
+    
     console.debug("Version: " + config.version);
 
     let app = new Application({
