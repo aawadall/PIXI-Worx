@@ -80,7 +80,7 @@
                         sprite.scale.set(sizeFactor, sizeFactor);
                         frame += 1;
                         if (frame > 5 ) {
-                            currentTexture += (currentTexture < 9?1:-6);
+                            currentTexture += (currentTexture < 9?1:-5);
                             
                             sprite.setTexture(PIXI.loader.resources[textures[currentTexture]].texture);
                             frame = 0;
