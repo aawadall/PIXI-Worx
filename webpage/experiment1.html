@@ -86,7 +86,7 @@
                         //sprite.scale.set(sizeFactor, sizeFactor);
                         frame += 1;
                         if (frame > 5 ) {
-                            sprite.x += 5;
+                            sprite.x += 2 * frame;
                             currentTexture += (currentTexture < 9?1:-4);
                             statText.text = 'Key : '       + currentTexture +
                                             '\nTexture : ' + textures[currentTexture];
