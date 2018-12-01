@@ -73,10 +73,10 @@
                     let frame = 0;
                        
                     function gameLoop(delta) {
-                        sprite.x += 0.1;
-                        sprite.y += 0.05;
+                        sprite.x += 0.05;
+                        sprite.y += 0.01;
                         //sprite.rotation += 0.01;
-                        sizeFactor += 0.001;
+                        sizeFactor += 0.0001;
                         sprite.scale.set(sizeFactor, sizeFactor);
                         frame += 1;
                         if (frame > 10 ) {
