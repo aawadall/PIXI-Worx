@@ -86,7 +86,7 @@
                         //sprite.scale.set(sizeFactor, sizeFactor);
                         frame += 1;
                         if (frame > 25 ) {
-                            currentTexture += (currentTexture < 9?1:-9);
+                            currentTexture += (currentTexture < 6?1:-2);
                             statText.text = 'Key : '       + currentTexture +
                                             '\nTexture : ' + textures[currentTexture];
                             sprite.setTexture(PIXI.loader.resources[textures[currentTexture]].texture);
