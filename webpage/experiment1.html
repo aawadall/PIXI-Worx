@@ -48,7 +48,7 @@
                         .load(setup);
                     
                     let sprite = undefined;
-                    let sizeFactor = 0.5;
+                    let sizeFactor = 0.25;
                  
                     function setup() {
                         sprite = new PIXI.Sprite(PIXI.loader.resources[textures[currentTexture]].texture);
@@ -68,7 +68,7 @@
                     function gameLoop(delta) {
                         sprite.x += 1;
                         sprite.rotation += 0.1;
-                        sizeFactor += 0.1;
+                        sizeFactor += 0.01;
                         sprite.scale.set(sizeFactor, sizeFactor);
                         currentTexture += (currentTexture < 3?1:-3);
                         //sprite.setTexture(textures[currentTexture]);
