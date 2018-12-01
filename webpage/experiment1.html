@@ -58,7 +58,7 @@
                         sprite.scale.set(sizeFactor, sizeFactor);
 
                         sprite.rotation = 0.0;
-
+                        sprite.anchor.set(32,32);
                         app.stage.addChild(sprite);
 
                         app.ticker.add(delta => gameLoop(delta));
