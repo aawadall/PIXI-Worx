@@ -79,14 +79,15 @@
                     let frame = 0;
                        
                     function gameLoop(delta) {
-                        sprite.x += 0.5;
+                        
                         //sprite.y += 0.05;
                         //sprite.rotation += 0.01;
                         //sizeFactor += 0.0005;
                         //sprite.scale.set(sizeFactor, sizeFactor);
                         frame += 1;
                         if (frame > 5 ) {
-                            currentTexture += (currentTexture < 7?1:-2);
+                            sprite.x += 1;
+                            currentTexture += (currentTexture < 9?1:-4);
                             statText.text = 'Key : '       + currentTexture +
                                             '\nTexture : ' + textures[currentTexture];
                             sprite.setTexture(PIXI.loader.resources[textures[currentTexture]].texture);
