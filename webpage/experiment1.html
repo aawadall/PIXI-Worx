@@ -54,7 +54,7 @@
                         .load(setup);
                     
                     let sprite = undefined;
-                    let text = undefined;
+                    let statText = undefined;
                     let sizeFactor = 0.25;
                  
                     function setup() {
@@ -70,7 +70,8 @@
 
                         app.ticker.add(delta => gameLoop(delta));
 
-                        let statText = new PIXI.Text('Key '+currentTexture,{fontFamily : 'Arial', fontSize: 24, fill : 0xff1010, align : 'center'});
+                        let statText = new PIXI.Text('Key '+currentTexture,{
+                            fontFamily : 'Arial', fontSize: 24, fill : 0xff1010, align : 'center'});
                         statText.x = 512;
                         app.stage.addChild(statText);
                     }
