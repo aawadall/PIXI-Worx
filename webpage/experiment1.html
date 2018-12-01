@@ -34,25 +34,35 @@
 
                     container.appendChild(app.view);
 
-                    PIXI.loader
-                        .add([
+                    const textures = [
                                 "img/PNG/Zombie1/animation/Idle1.png",
                                 "img/PNG/Zombie1/animation/Idle2.png",
                                 "img/PNG/Zombie1/animation/Idle3.png",
                                 "img/PNG/Zombie1/animation/Idle4.png"
-                            ])
+                            ];
+                    
+                    let currentTexture = 0;
+
+                    PIXI.loader
+                        .add(textures)
                         .load(setup);
 
                     function setup() {
-                        let sprite = new PIXI.Sprite(PIXI.loader.resources["img/PNG/Zombie1/animation/Idle1.png"].texture);
+                        let sprite = new PIXI.Sprite(PIXI.loader.resources[textures[currentTexture]].texture);
 
                         sprite.x = 100;
                         sprite.y = 100;
                         sprite.scale.set(0.5, 0.5);
 
                         sprite.rotation = 0.5;
-                        
+
                         app.stage.addChild(sprite);
+
+                        app.ticker.add(delta => gameLoop(delta));
+                    }
+
+                    function gameLoop(delta) {
+                        sprite.x += 1;
                     }
                 }
             </script>
