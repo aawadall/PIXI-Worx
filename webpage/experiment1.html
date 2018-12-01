@@ -63,7 +63,8 @@
 
                         app.ticker.add(delta => gameLoop(delta));
                     }
-
+                    
+                    let frame = 0;
                        
                     function gameLoop(delta) {
                         sprite.x += 0.1;
@@ -71,8 +72,12 @@
                         sprite.rotation += 0.01;
                         sizeFactor += 0.001;
                         sprite.scale.set(sizeFactor, sizeFactor);
-                        currentTexture += (currentTexture < 3?1:-3);
-                        sprite.setTexture(PIXI.loader.resources[textures[currentTexture]].texture);
+                        frame += 1;
+                        if (frame > 150 ) {
+                            currentTexture += (currentTexture < 3?1:-3);
+                            sprite.setTexture(PIXI.loader.resources[textures[currentTexture]].texture);
+                            frame = 0;
+                        }
                     }
                 }
             </script>
