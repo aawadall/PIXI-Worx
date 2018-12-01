@@ -46,9 +46,11 @@
                     PIXI.loader
                         .add(textures)
                         .load(setup);
-
+                    
+                    let sprite = undefined;
+                    
                     function setup() {
-                        let sprite = new PIXI.Sprite(PIXI.loader.resources[textures[currentTexture]].texture);
+                        sprite = new PIXI.Sprite(PIXI.loader.resources[textures[currentTexture]].texture);
 
                         sprite.x = 100;
                         sprite.y = 100;
