@@ -35,10 +35,16 @@
                     container.appendChild(app.view);
 
                     const textures = [
-                                "img/PNG/Zombie1/animation/Idle1.png",
-                                "img/PNG/Zombie1/animation/Idle2.png",
-                                "img/PNG/Zombie1/animation/Idle3.png",
-                                "img/PNG/Zombie1/animation/Idle4.png"
+                                "img/PNG/Zombie1/animation/Run1.png",
+                                "img/PNG/Zombie1/animation/Run2.png",
+                                "img/PNG/Zombie1/animation/Run3.png",
+                                "img/PNG/Zombie1/animation/Run4.png",
+                                "img/PNG/Zombie1/animation/Run5.png",
+                                "img/PNG/Zombie1/animation/Run6.png",
+                                "img/PNG/Zombie1/animation/Run7.png",
+                                "img/PNG/Zombie1/animation/Run8.png",
+                                "img/PNG/Zombie1/animation/Run9.png",
+                                "img/PNG/Zombie1/animation/Run10.png",
                             ];
                     
                     let currentTexture = 0;
@@ -73,8 +79,8 @@
                         sizeFactor += 0.001;
                         sprite.scale.set(sizeFactor, sizeFactor);
                         frame += 1;
-                        if (frame > 20 ) {
-                            currentTexture += (currentTexture < 3?1:-3);
+                        if (frame > 10 ) {
+                            currentTexture += (currentTexture < 10?1:-10);
                             sprite.setTexture(PIXI.loader.resources[textures[currentTexture]].texture);
                             frame = 0;
                         }
