@@ -28,7 +28,7 @@
                     app.renderer.backgroundColor = 0x0f000f;
 
                     app.renderer.autoResize = true;
-                    app.renderer.resize(512,512);
+                    app.renderer.resize(1024,512);
 
                     let container = document.getElementById("pixi-container");
 
@@ -65,7 +65,7 @@
 
                     function gameLoop(delta) {
                         sprite.x += 1;
-                        sprite.rotation = 0.1;
+                        sprite.rotation = 0.5;
                         currentTexture += (currentTexture < 3?1:-3);
                         //sprite.setTexture(textures[currentTexture]);
                     }
