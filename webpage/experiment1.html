@@ -70,7 +70,7 @@
 
                         app.ticker.add(delta => gameLoop(delta));
 
-                        let statText = new PIXI.Text('Key '+currentTexture,{
+                        statText = new PIXI.Text('Key '+currentTexture,{
                             fontFamily : 'Arial', fontSize: 24, fill : 0xff1010, align : 'center'});
                         statText.x = 512;
                         app.stage.addChild(statText);
