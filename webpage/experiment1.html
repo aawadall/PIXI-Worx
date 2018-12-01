@@ -60,7 +60,7 @@
                         sprite = new PIXI.Sprite(PIXI.loader.resources[textures[currentTexture]].texture);
 
                         sprite.x = 1;
-                        sprite.y = 1;
+                        sprite.y = 100;
                         sprite.scale.set(sizeFactor, sizeFactor);
 
                         sprite.rotation = 0.0;
@@ -73,14 +73,14 @@
                     let frame = 0;
                        
                     function gameLoop(delta) {
-                        sprite.x += 0.5;
-                        sprite.y += 0.05;
+                        sprite.x += 0.25;
+                        //sprite.y += 0.05;
                         //sprite.rotation += 0.01;
-                        sizeFactor += 0.0005;
-                        sprite.scale.set(sizeFactor, sizeFactor);
+                        //sizeFactor += 0.0005;
+                        //sprite.scale.set(sizeFactor, sizeFactor);
                         frame += 1;
                         if (frame > 8 ) {
-                            currentTexture += (currentTexture < 9?1:-4);
+                            currentTexture += (currentTexture < 9?1:-5);
                             
                             sprite.setTexture(PIXI.loader.resources[textures[currentTexture]].texture);
                             frame = 0;
