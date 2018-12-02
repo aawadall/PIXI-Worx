@@ -79,6 +79,7 @@
                     let frame = 0;
                        
                     function gameLoop(delta) {
+                        if (sprite.x >= app.width) {sprite.x = 0;}
                         sprite.x += 0.5;
                         sprite.y += 0.01;
                         //sprite.rotation += 0.01;
@@ -95,7 +96,7 @@
                             frame = 0;
                         }
 
-                        if (sprite.x >= app.width) {sprite.x = 0;}
+                        
                     }
                 }
             </script>
