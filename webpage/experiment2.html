@@ -19,7 +19,7 @@
             <script>
                 window.onload = function () {
 
-                    import * as PIXI from "js/pixi.min.js";
+                    
                     
                     let app = new PIXI.Application({
                         width: 256,
@@ -38,19 +38,85 @@
 
                     container.appendChild(app.view);
 
-                    const textures = [
-                                "img/PNG/Zombie1/animation/Run1.png",
-                                "img/PNG/Zombie1/animation/Run2.png",
-                                "img/PNG/Zombie1/animation/Run3.png",
-                                "img/PNG/Zombie1/animation/Run4.png",
-                                "img/PNG/Zombie1/animation/Run5.png",
-                                "img/PNG/Zombie1/animation/Run6.png",
-                                "img/PNG/Zombie1/animation/Run7.png",
-                                "img/PNG/Zombie1/animation/Run8.png",
-                                "img/PNG/Zombie1/animation/Run9.png",
-                                "img/PNG/Zombie1/animation/Run10.png",
+                    let Sequence = class {
+                        constructor(_prefix, _description, _firstFrame, _lastFrame, _suffix) {
+                            this.prefix = _prefix;
+                            this.description = _description;
+                            this.firstFrame = _firstFrame;
+                            this.lastFrame = _lastFrame;
+                            this.suffix = _suffix;
+                        }
+                    };
+
+                    let Zombie = class {
+                        constructor(_baseFolder) {
+
+                            this.currentSequence = 3;
+
+                            this.animations = [
+                                {id: 0, name: "Attack"},
+                                {id: 1, name: "Dead"},
+                                {id: 2, name: "Hurt"},
+                                {id: 3, name: "Idle"},
+                                {id: 4, name: "Jump"},
+                                {id: 5, name: "Run 1"},
+                                {id: 6, name: "Run 2"},
+                                {id: 7, name: "walk"}
                             ];
-                    
+
+                            this.assets = {
+                                baseFolder: _baseFolder,
+                                animation: {
+                                    folder: "animation",
+                                    sequence: [
+                                        new Sequence("Attack", "Zombie Attack", 1, 6, ".png"),
+                                        new Sequence("Dead", "Dead Zombie", 1, 8, ".png"),
+                                        new Sequence("Hurt", "Zombie Hurt", 1, 5, ".png"),
+                                        new Sequence("Idle", "Doing nothing", 1, 4, ".png"),
+                                        new Sequence("Jump", "Jumping Zombie", 1, 7, ".png"),
+                                        new Sequence("Run", "Attempted Run", 1, 4, ".png"),
+                                        new Sequence("Run", "Run Loop", 5, 10, ".png"),
+                                        new Sequence("Walk", "Walking Loop", 1, 6, ".png")
+                                    ]
+                                }
+                            };
+
+                            firstFrame = this.getFile(  this.assets.animation.sequence[this.currentSequence].prefix,
+                                                        1,
+                                                        this.assets.animation.sequence[this.currentSequence].suffix);
+
+                            sprite = new PIXI.Sprite(PIXI.loader.resources[firstFrame].texture);
+                            return sprite;
+                        };
+
+                        getFile = function(_prefix, _index, _suffix) {
+                            return  this.assets.baseFolder + "/" +
+                                    this.assets.animation.folder + "/" +
+                                    _prefix + _index + _suffix;
+                        };
+
+                        getLoop = function(index) {
+                            if (index === -1) {index = this.currentSequence;}
+                            else {this.currentSequence = index;}
+                            let loop = [];
+                            const prefix = this.assets.animation.sequence[index].prefix;
+                            const firstFrame = this.assets.animation.sequence[index].firstFrame;
+                            const lastFrame = this.assets.animation.sequence[index].lastFrame;
+                            const suffix = this.assets.animation.sequence[index].suffix;
+
+                            for (idx = firstFrame; idx < lastFrame; idx++) {
+                                const fileName = this.getFile(prefix, idx, suffix);
+
+                                PIXI.loader.add(fileName);
+                                loop.push(new PIXI.Sprite(PIXI.loader.resources[fileName].texture));
+                            }
+
+                            return loop;
+                        };
+                    };
+
+
+
                     let currentTexture = 2;
 
                     PIXI.loader
@@ -62,7 +128,7 @@
                     let sizeFactor = 0.35;
                  
                     function setup() {
-                        sprite = new PIXI.Sprite(PIXI.loader.resources[textures[currentTexture]].texture);
+
 
                         sprite.x = 1;
                         sprite.y = 100;
@@ -91,8 +157,7 @@
                         //sprite.scale.set(sizeFactor, sizeFactor);
                         frame += 1;
                         if (frame > 5 ) {
-                            sprite.x += 2 * frame;
-                            sprite.y += 0.05 * frame;
+
                             currentTexture += (currentTexture < 9?1:-4);
                             statText.text = 'Key : '       + currentTexture +
                                             '\nTexture : ' + textures[currentTexture];
