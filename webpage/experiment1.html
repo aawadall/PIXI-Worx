@@ -79,14 +79,14 @@
                     let frame = 0;
                        
                     function gameLoop(delta) {
-                        
+                        sprite.x += 0.5;
                         //sprite.y += 0.05;
                         //sprite.rotation += 0.01;
                         //sizeFactor += 0.0005;
                         //sprite.scale.set(sizeFactor, sizeFactor);
                         frame += 1;
                         if (frame > 5 ) {
-                            sprite.x += 3 * frame;
+                            sprite.x += 2 * frame;
                             currentTexture += (currentTexture < 9?1:-4);
                             statText.text = 'Key : '       + currentTexture +
                                             '\nTexture : ' + textures[currentTexture];
