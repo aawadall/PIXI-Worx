@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Experiment 1</title>
+    <title>Experiment 2</title>
     <meta name="description" content="" />
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/gradients.css" rel="stylesheet">
@@ -14,10 +14,13 @@
     <div class="wrapper">
         <a href="index.html">Home</a>
 
-        <div><h3>Experimenting with sprite texture changes and simulating motion</h3></div>
+        <div><h3>Experimenting with objects</h3></div>
         <div id="pixi-container">
             <script>
                 window.onload = function () {
+
+                    import * as PIXI from "js/pixi.min.js";
+                    
                     let app = new PIXI.Application({
                         width: 256,
                         height: 256,
