@@ -85,12 +85,17 @@
                                                         1,
                                                         this.assets.animation.sequence[this.currentSequence].suffix);
 
+                            PIXI.loader.add(this.currentTexture).load(this.setup);
+                            
+
+                        };
+                        
+                        setup() {
                             var x = this.getLoop(this.currentSequence);
                             var firstTexture = PIXI.loader.resources[this.firstFrame].texture;
                             this.sprite = new PIXI.Sprite(firstTexture);
-
-                        };
-
+                            app.stage.addChild(this.sprite);
+                        }
                         getFile(_prefix, _index, _suffix) {
                             return  this.assets.baseFolder + "/" +
                                     this.assets.animation.folder + "/" +
@@ -122,7 +127,8 @@
                     zombie1.x = 512;
                     zombie1.y = 128;
                     let currentTexture = 2;
-                    app.stage.addChild(zombie1);
+
+                    //app.stage.addChild(zombie1);
                     app.ticker.add(delta => gameLoop(delta));
                     
                     let sprite = undefined;
