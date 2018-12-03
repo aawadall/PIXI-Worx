@@ -85,7 +85,7 @@
                                                         1,
                                                         this.assets.animation.sequence[this.currentSequence].suffix);
 
-                            var x = getLoop(currentSequence);
+                            var x = this.getLoop(this.currentSequence);
                             var firstTexture = PIXI.loader.resources[this.firstFrame].texture;
                             this.sprite = new PIXI.Sprite(firstTexture);
 
@@ -107,7 +107,7 @@
                             const suffix = this.assets.animation.sequence[index].suffix;
 
                             for (idx = firstFrame; idx < lastFrame; idx++) {
-                                const fileName = getFile(prefix, idx, suffix);
+                                const fileName = this.getFile(prefix, idx, suffix);
 
                                 PIXI.loader.add(fileName);
                                 loop.push(new PIXI.Sprite(PIXI.loader.resources[fileName].texture));
@@ -119,12 +119,11 @@
 
 
                     let zombie1 = new Zombie("img/PNG/Zombie1");
-
+                    zombie1.x = 512;
+                    zombie1.y = 128;
                     let currentTexture = 2;
-
-                    PIXI.loader
-                        .add(textures)
-                        .load(setup);
+                    app.stage.addChild(zombie1);
+                    app.ticker.add(delta => gameLoop(delta));
                     
                     let sprite = undefined;
                     let statText = undefined;
