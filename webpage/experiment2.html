@@ -81,21 +81,23 @@
                                 }
                             };
 
-                            firstFrame = this.getFile(  this.assets.animation.sequence[this.currentSequence].prefix,
+                            this.firstFrame = this.getFile(  this.assets.animation.sequence[this.currentSequence].prefix,
                                                         1,
                                                         this.assets.animation.sequence[this.currentSequence].suffix);
 
-                            sprite = new PIXI.Sprite(PIXI.loader.resources[firstFrame].texture);
+                            var x = getLoop(currentSequence);
+                            var firstTexture = PIXI.loader.resources[this.firstFrame].texture;
+                            this.sprite = new PIXI.Sprite(firstTexture);
 
                         };
 
-                        getFile = function(_prefix, _index, _suffix) {
+                        getFile(_prefix, _index, _suffix) {
                             return  this.assets.baseFolder + "/" +
                                     this.assets.animation.folder + "/" +
                                     _prefix + _index + _suffix;
                         };
 
-                        getLoop = function(index) {
+                        getLoop(index) {
                             if (index === -1) {index = this.currentSequence;}
                             else {this.currentSequence = index;}
                             let loop = [];
