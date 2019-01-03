@@ -134,7 +134,7 @@ Game.prototype = {
      */
     handleKeys: function(code, state) {
 
-
+        console.log('Key: ' + code + ' State: ' + state);
         switch (code) {
             // left 37 , A 65
             case 37:
@@ -154,14 +154,20 @@ Game.prototype = {
                 break;
         }
     },
-
+    printState: function() {
+        console.log("Game State:");
+        console.log("Keys: [UP] = " + this.keyUp + " [DOWN] = " + this.keyDown + " [LEFT] = " + this.keyLeft + " [RIGHT] = " + this.keyRight);
+        console.log("Physics: [Angular v.] = " + this.ship.angularVelocity + " [y Force] = " + this.ship.force[0] + " [x Force] = "  + this.ship.force[1]);
+    },
     updatePhysics: function(){
-
+        this.printState();
         // Update ship's angular velocity for rotation
         if(this.keyLeft) {
             this.ship.angularVelocity =  -1 * this.turnSpeed;
+            this.keyLeft = false;
         } else if (this.keyRight) {
             this.ship.angularVelocity =   this.turnSpeed;
+            this.keyRight = false;
         } else {
             this.ship.angularVelocity = 0;
         }
@@ -169,8 +175,14 @@ Game.prototype = {
         // Apply force vector
         if(this.keyUp) {
             const angle = this.ship.angle * Math.PI /2;
-            this.ship.force[0] -= this.speed * Math.cos(angle);
-            this.ship.force[1] -= this.speed * Math.sin(angle);
+            this.ship.force[0] -= this.speed * Math.sin(angle);
+            this.ship.force[1] -= this.speed * Math.cos(angle);
+            this.keyUp = false;
+        } else if (this.keyDown) {
+            const angle = this.ship.angle * Math.PI /2;
+            this.ship.force[0] += this.speed * Math.sin(angle);
+            this.ship.force[1] += this.speed * Math.cos(angle);
+            this.keyDown = false;
         }
         // Apply Physics simulation to graphics
         this.shipGraphics.x = this.ship.position[0];
