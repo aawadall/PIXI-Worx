@@ -1,0 +1,1 @@
+const traffic = new Traffic(1200, 720);

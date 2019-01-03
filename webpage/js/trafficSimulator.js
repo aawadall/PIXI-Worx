@@ -6,6 +6,5 @@ const Traffic = function (_width, _height) {
     // setup Physics simulation
     this.world = new p2.World({
         gravity: [0, 0],
-
     });
 }
