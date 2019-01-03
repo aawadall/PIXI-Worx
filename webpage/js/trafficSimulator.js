@@ -9,4 +9,16 @@ const Traffic = function (_width, _height) {
     this.world = new p2.World({
         gravity: [0, 0],
     });
+};
+
+Traffic.prototype = {
+    build: function () {
+        this.buildRoadNetwork();
+        this.initCars();
+    },
+
+    // Given Road Configuration object, define roads
+    buildRoadNetwork : function () {
+        // TODO:
+    }
 }
