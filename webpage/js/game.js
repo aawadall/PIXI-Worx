@@ -158,6 +158,7 @@ Game.prototype = {
         console.log("Game State:");
         console.log("Keys: [UP] = " + this.keyUp + " [DOWN] = " + this.keyDown + " [LEFT] = " + this.keyLeft + " [RIGHT] = " + this.keyRight);
         console.log("Physics: [Angular v.] = " + this.ship.angularVelocity + " [y Force] = " + this.ship.force[0] + " [x Force] = "  + this.ship.force[1]);
+        console.log("[Angle] = " + this.ship.angle + " [in PI] = " + this.ship.angle / Math.PI);
     },
     updatePhysics: function(){
         this.printState();
@@ -174,12 +175,12 @@ Game.prototype = {
 
         // Apply force vector
         if(this.keyUp) {
-            const angle = this.ship.angle * Math.PI /2;
+            const angle = -this.ship.angle / Math.PI * 180;
             this.ship.force[0] -= this.speed * Math.sin(angle);
             this.ship.force[1] -= this.speed * Math.cos(angle);
             this.keyUp = false;
         } else if (this.keyDown) {
-            const angle = this.ship.angle * Math.PI /2;
+            const angle = -this.ship.angle / Math.PI * 180;
             this.ship.force[0] += this.speed * Math.sin(angle);
             this.ship.force[1] += this.speed * Math.cos(angle);
             this.keyDown = false;
