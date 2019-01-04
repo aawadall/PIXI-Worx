@@ -414,6 +414,47 @@ const roadNetwork = {
                     ]
                 }
             ]
+        },
+        {
+            id: 5,
+            type: "vehicleLane",
+            name : "Southwest Bound",
+            anchors: [ 4, 5, 14, 15 ],
+            controller: 1,
+            rules: [
+                {
+                    id: 0,
+                    lightFlag: "RXX",
+                    flow: false,
+                    yieldTo: []
+                },
+                {
+                    id: 1,
+                    lightFlag: "GXX",
+                    flow: true,
+                    yieldTo: []
+                },
+                {
+                    id: 2,
+                    lightFlag: "YXX",
+                    flow: true,
+                    yieldTo: []
+                },
+                {
+                    id: 3,
+                    lightFlag: "AXG",
+                    flow: true,
+                    yieldTo: [
+                        //TODO
+                    ]
+                },
+                {
+                    id: 4,
+                    lightFlag: "AXR",
+                    flow: false,
+                    yieldTo: []
+                }
+            ]
         }
     ]
 };
