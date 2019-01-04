@@ -266,7 +266,7 @@ const roadNetwork = {
             ]
         },
         {
-            id: 1,
+            id: 2,
             type: "vehicleLane",
             name : "Northwest Bound",
             anchors: [ 0, 1, 10, 11 ],
