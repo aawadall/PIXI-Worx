@@ -183,6 +183,91 @@ const roadNetwork = {
                                 flow: false,
                                 yield: []
                             }
+                        },
+                        {
+                            id: 3,
+                            name: "Green Right",
+                            control: {
+                                flow: false,
+                                yield: []
+                            }
+                        },
+                        {
+                            id: 4,
+                            name: "Green Left",
+                            control: {
+                                flow: false,
+                                yield: []
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 1,
+            type: "vehicleLane",
+            name : "Northeast Bound",
+            anchors: [ 0, 1, 2, 3 ],
+            controllers: [
+                {
+                    id: 0,
+                    anchor: 1,
+                    type: "vehicleTrafficLight",
+                    name: "Northbound Traffic Controller",
+                    states: [
+                        {
+                            id: 0,
+                            name: "Green",
+                            control: {
+                                flow: true,
+                                yield: [
+                                    // TODO: define northbound pedestrian flow
+                                    // TODO: define southbound pedestrian flow
+                                ]
+                            }
+                        },
+                        {
+                            id: 1,
+                            name: "Yellow",
+                            control: {
+                                flow: true,
+                                yield: [
+                                    // TODO: define northbound pedestrian flow
+                                    // TODO: define southbound pedestrian flow
+                                ]
+                            }
+                        },
+                        {
+                            id: 2,
+                            name: "Red",
+                            control: {
+                                flow: true,
+                                yield: [
+                                    // TODO: define eastbound flow
+                                    // TODO: define southeast bound flow
+                                    // TODO: define northbound pedestrian flow
+                                    // TODO: define southbound pedestrian flow
+                                ]
+                            }
+                        },
+                        {
+                            id: 3,
+                            name: "Green Right",
+                            control: {
+                                flow: true,
+                                yield: []
+                            }
+                        },
+                        {
+                            id: 4,
+                            name: "Green Left",
+                            control: {
+                                flow: true,
+                                yield: [
+                                    // TODO: define yield to southeast bound flow
+                                ]
+                            }
                         }
                     ]
                 }
