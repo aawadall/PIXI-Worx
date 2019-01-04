@@ -156,15 +156,28 @@ const roadNetwork = {
             states: [
                 {
                     id: 0,
+                    value: "R",
                     name: "Red"
                 },
                 {
                     id: 1,
+                    value: "G",
                     name: "Green"
                 },
                 {
                     id: 2,
+                    value: "Y",
                     name: "Yellow"
+                },
+                {
+                    id: 3,
+                    value: "X",
+                    name: "Dont Care"
+                },
+                {
+                    id: 4,
+                    value: "A",
+                    name: "Absent"
                 }
             ],
             directions: [
@@ -199,22 +212,19 @@ const roadNetwork = {
             rules: [
                 {
                     id: 0,
-                    lightID: 0,
-                    state: 0,
+                    lightFlag: "XXR",
                     flow: false,
                     yieldTo: []
                 },
                 {
                     id: 1,
-                    lightID: 0,
-                    state: 1,
+                    lightFlag: "XXG",
                     flow: true,
                     yieldTo: []
                 },
                 {
                     id: 2,
-                    lightID: 0,
-                    state: 2,
+                    lightFlag: "XXY",
                     flow: true,
                     yieldTo: []
                 }
@@ -229,24 +239,62 @@ const roadNetwork = {
             rules: [
                 {
                     id: 0,
-                    lightID: 1,
-                    state: 0,
+                    lightFlag: "XRX",
+                    flow: false,
+                    yieldTo: []
+                },
+                {
+                    id: 1,
+                    lightFlag: "XGX",
+                    flow: true,
+                    yieldTo: []
+                },
+                {
+                    id: 2,
+                    lightFlag: "XAG",
                     flow: true,
                     yieldTo: [
                         //TODO
                     ]
                 },
                 {
+                    id: 3,
+                    lightFlag: "XYX",
+                    flow: true,
+                    yieldTo: []
+                }
+            ]
+        },
+        {
+            id: 1,
+            type: "vehicleLane",
+            name : "Northwest Bound",
+            anchors: [ 0, 1, 10, 11 ],
+            controller: 0,
+            rules: [
+                {
+                    id: 0,
+                    lightFlag: "RXX",
+                    flow: false,
+                    yieldTo: []
+                },
+                {
                     id: 1,
-                    lightID: 1,
-                    state: 1,
+                    lightFlag: "GXX",
                     flow: true,
                     yieldTo: []
                 },
                 {
                     id: 2,
-                    lightID: 1,
-                    state: 2,
+                    lightFlag: "AXG",
+                    flow: true,
+                    yieldTo: [
+                        //TODO
+                    ]
+                },
+                {
+                    id: 3,
+                    lightFlag: "YXX",
                     flow: true,
                     yieldTo: []
                 }
