@@ -147,60 +147,76 @@ const roadNetwork = {
             }
         }
     ],
+    controllers: [
+        {
+            id: 0,
+            anchor: 1,
+            name: "Northbound Traffic Controller",
+            type: "vehicleTrafficLight",
+            states: [
+                {
+                    id: 0,
+                    name: "Red"
+                },
+                {
+                    id: 1,
+                    name: "Green"
+                },
+                {
+                    id: 2,
+                    name: "Yellow"
+                }
+            ],
+            directions: [
+                {
+                    id: 0,
+                    name: "Northbound",
+                    direction: 6,
+                    states: [0,1,2]
+                },
+                {
+                    id: 1,
+                    name: "Eastbound",
+                    direction: 2,
+                    states: [0,1,2]
+                },
+                {
+                    id: 2,
+                    name: "Westbound",
+                    direction: 10,
+                    states: [0,1,2]
+                }
+            ]
+        }
+    ],
     lanes : [
         {
             id: 0,
             type: "vehicleLane",
             name : "Northbound",
             anchors: [ 0, 1, 6, 7 ],
-            controllers: [
+            controller: 0,
+            rules: [
                 {
                     id: 0,
-                    anchor: 1,
-                    type: "vehicleTrafficLight",
-                    name: "Northbound Traffic Controller",
-                    states: [
-                        {
-                            id: 0,
-                            name: "Green",
-                            control: {
-                                flow: true,
-                                yield: []
-                            }
-                        },
-                        {
-                            id: 1,
-                            name: "Yellow",
-                            control: {
-                                flow: true,
-                                yield: []
-                            }
-                        },
-                        {
-                            id: 2,
-                            name: "Red",
-                            control: {
-                                flow: false,
-                                yield: []
-                            }
-                        },
-                        {
-                            id: 3,
-                            name: "Green Right",
-                            control: {
-                                flow: false,
-                                yield: []
-                            }
-                        },
-                        {
-                            id: 4,
-                            name: "Green Left",
-                            control: {
-                                flow: false,
-                                yield: []
-                            }
-                        }
-                    ]
+                    lightID: 0,
+                    state: 0,
+                    flow: false,
+                    yieldTo: []
+                },
+                {
+                    id: 1,
+                    lightID: 0,
+                    state: 1,
+                    flow: true,
+                    yieldTo: []
+                },
+                {
+                    id: 2,
+                    lightID: 0,
+                    state: 2,
+                    flow: true,
+                    yieldTo: []
                 }
             ]
         },
@@ -209,67 +225,30 @@ const roadNetwork = {
             type: "vehicleLane",
             name : "Northeast Bound",
             anchors: [ 0, 1, 2, 3 ],
-            controllers: [
+            controller: 0,
+            rules: [
                 {
                     id: 0,
-                    anchor: 1,
-                    type: "vehicleTrafficLight",
-                    name: "Northbound Traffic Controller",
-                    states: [
-                        {
-                            id: 0,
-                            name: "Green",
-                            control: {
-                                flow: true,
-                                yield: [
-                                    // TODO: define northbound pedestrian flow
-                                    // TODO: define southbound pedestrian flow
-                                ]
-                            }
-                        },
-                        {
-                            id: 1,
-                            name: "Yellow",
-                            control: {
-                                flow: true,
-                                yield: [
-                                    // TODO: define northbound pedestrian flow
-                                    // TODO: define southbound pedestrian flow
-                                ]
-                            }
-                        },
-                        {
-                            id: 2,
-                            name: "Red",
-                            control: {
-                                flow: true,
-                                yield: [
-                                    // TODO: define eastbound flow
-                                    // TODO: define southeast bound flow
-                                    // TODO: define northbound pedestrian flow
-                                    // TODO: define southbound pedestrian flow
-                                ]
-                            }
-                        },
-                        {
-                            id: 3,
-                            name: "Green Right",
-                            control: {
-                                flow: true,
-                                yield: []
-                            }
-                        },
-                        {
-                            id: 4,
-                            name: "Green Left",
-                            control: {
-                                flow: true,
-                                yield: [
-                                    // TODO: define yield to southeast bound flow
-                                ]
-                            }
-                        }
+                    lightID: 1,
+                    state: 0,
+                    flow: true,
+                    yieldTo: [
+                        //TODO
                     ]
+                },
+                {
+                    id: 1,
+                    lightID: 1,
+                    state: 1,
+                    flow: true,
+                    yieldTo: []
+                },
+                {
+                    id: 2,
+                    lightID: 1,
+                    state: 2,
+                    flow: true,
+                    yieldTo: []
                 }
             ]
         }
