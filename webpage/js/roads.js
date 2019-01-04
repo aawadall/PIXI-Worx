@@ -379,6 +379,41 @@ const roadNetwork = {
                     yieldTo: []
                 }
             ]
+        },
+        {
+            id: 4,
+            type: "vehicleLane",
+            name : "Northwest Bound",
+            anchors: [ 4, 5, 6, 7 ],
+            controller: 1,
+            rules: [
+                {
+                    id: 0,
+                    lightFlag: "XRX",
+                    flow: false,
+                    yieldTo: []
+                },
+                {
+                    id: 1,
+                    lightFlag: "XGX",
+                    flow: true,
+                    yieldTo: []
+                },
+                {
+                    id: 2,
+                    lightFlag: "XYX",
+                    flow: true,
+                    yieldTo: []
+                },
+                {
+                    id: 3,
+                    lightFlag: "XAX",
+                    flow: true,
+                    yieldTo: [
+                        //TODO
+                    ]
+                }
+            ]
         }
     ]
 };
