@@ -2,13 +2,12 @@ const Traffic = function (_width, _height) {
     this.renderer = new PIXI.CanvasRenderer(_width, _height);
     this.renderer.backgroundColor = 0x555555;
     document.body.appendChild(this.renderer.view);
-
-
+    /*
     this.stage = new PIXI.Stage(); // nominated for removal
-
+    */
 
     this.scene = new PIXI.Container();
-    this.renderer.render(this.scene);
+
     //requestAnimationFrame(this.renderer);
     // setup Physics simulation
     this.world = new p2.World({
@@ -24,6 +23,7 @@ Traffic.prototype = {
         this.buildRoadNetwork();
         this.buildControllers();
         this.initCars();
+        this.renderer.render(this.scene);
     },
 
     // Given Road Configuration object, define roads
@@ -45,8 +45,8 @@ Traffic.prototype = {
                     laneSprite.lineStyle(laneWidth, laneColor, laneAlpha);
                     laneSprite.moveTo(laneStart.location.x, laneStart.location.y);
                     laneSprite.lineTo(laneEnd.x, laneEnd.y);
-                    this.stage.addChild(laneSprite);
-
+                    this.scene.addChild(laneSprite);
+                    this.renderer.render(this.scene);
                     //
                     laneStart = laneEnd;
                 }
