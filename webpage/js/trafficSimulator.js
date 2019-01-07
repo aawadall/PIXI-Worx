@@ -14,11 +14,25 @@ const Traffic = function (_width, _height) {
 Traffic.prototype = {
     build: function () {
         this.buildRoadNetwork();
+        this.buildControllers();
         this.initCars();
     },
 
     // Given Road Configuration object, define roads
     buildRoadNetwork : function () {
-        // TODO:
+        // from roadNetwork from roads.js render roads
+        // Each lane is are made of lines connecting two anchor points
+        const anchors = roadNetwork.anchorPoints;
+        const lanes = roadNetwork.lanes;
+        lanes.forEach( lane => {
+                let laneStart = anchors[lane.anchors[0]];
+                for(let idx=1; idx < lane.anchors.length; idx++ ) {
+                    let laneEnd = anchors[lane.anchors[idx]];
+                    // Do Something
+                    laneStart = laneEnd;
+                }
+            }
+        );
+
     }
-}
+};
