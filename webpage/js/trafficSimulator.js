@@ -8,7 +8,7 @@ const Traffic = function (_width, _height) {
 
 
     this.scene = new PIXI.Container();
-    //this.renderer.render(this.scene);
+    this.renderer.render(this.scene);
     //requestAnimationFrame(this.renderer);
     // setup Physics simulation
     this.world = new p2.World({
@@ -45,8 +45,8 @@ Traffic.prototype = {
                     laneSprite.lineStyle(laneWidth, laneColor, laneAlpha);
                     laneSprite.moveTo(laneStart.location.x, laneStart.location.y);
                     laneSprite.lineTo(laneEnd.x, laneEnd.y);
-                    this.stage.appendChild(laneSprite);
-                    //this.stage.addChild(walls);
+                    this.stage.addChild(laneSprite);
+
                     //
                     laneStart = laneEnd;
                 }
