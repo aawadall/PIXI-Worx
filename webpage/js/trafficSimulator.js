@@ -1,14 +1,22 @@
 const Traffic = function (_width, _height) {
     this.renderer = new PIXI.CanvasRenderer(_width, _height);
+    this.renderer.backgroundColor = 0x555555;
     document.body.appendChild(this.renderer.view);
 
     /*
     this.stage = new PIXI.Stage(); // nominated for removal
     */
+
+    const scene = new PIXI.Container();
+    this.renderer.render(scene);
+    requestAnimationFrame(this.renderer);
     // setup Physics simulation
     this.world = new p2.World({
         gravity: [0, 0],
     });
+
+    this.build();
+
 };
 
 Traffic.prototype = {
@@ -33,6 +41,11 @@ Traffic.prototype = {
                 }
             }
         );
-
+    },
+    buildControllers : function () {
+        // TODO
+    },
+    initCars: function () {
+        // TODO
     }
 };
