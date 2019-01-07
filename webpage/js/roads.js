@@ -253,6 +253,59 @@ const roadNetwork = {
                     states: [0,1,2]
                 }
             ]
+        },
+        {
+            id: 2,
+            anchor: 9,
+            name: "Southbound Traffic Controller",
+            type: "vehicleTrafficLight",
+            states: [
+                {
+                    id: 0,
+                    value: "R",
+                    name: "Red"
+                },
+                {
+                    id: 1,
+                    value: "G",
+                    name: "Green"
+                },
+                {
+                    id: 2,
+                    value: "Y",
+                    name: "Yellow"
+                },
+                {
+                    id: 3,
+                    value: "X",
+                    name: "Dont Care"
+                },
+                {
+                    id: 4,
+                    value: "A",
+                    name: "Absent"
+                }
+            ],
+            directions: [
+                {
+                    id: 0,
+                    name: "Westbound",
+                    direction: 10,
+                    states: [0,1,2]
+                },
+                {
+                    id: 1,
+                    name: "Northbound",
+                    direction: 6,
+                    states: [0,1,2]
+                },
+                {
+                    id: 2,
+                    name: "Southbound",
+                    direction: 14,
+                    states: [0,1,2]
+                }
+            ]
         }
     ],
     lanes : [
