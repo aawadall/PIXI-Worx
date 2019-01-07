@@ -593,7 +593,7 @@ const roadNetwork = {
             id: 7,
             type: "vehicleLane",
             name : "Southwest Bound",
-            anchors: [ 9, 9, 10, 11 ],
+            anchors: [ 8, 9, 10, 11 ],
             controller: 2,
             rules: [
                 {
@@ -630,6 +630,109 @@ const roadNetwork = {
             name : "Southeast Bound",
             anchors: [ 8, 9, 2, 3 ],
             controller: 2,
+            rules: [
+                {
+                    id: 0,
+                    lightFlag: "RXX",
+                    flow: false,
+                    yieldTo: []
+                },
+                {
+                    id: 1,
+                    lightFlag: "GXX",
+                    flow: true,
+                    yieldTo: []
+                },
+                {
+                    id: 2,
+                    lightFlag: "YXX",
+                    flow: true,
+                    yieldTo: []
+                },
+                {
+                    id: 3,
+                    lightFlag: "AXG",
+                    flow: true,
+                    yieldTo: [
+                        //TODO
+                    ]
+                },
+                {
+                    id: 4,
+                    lightFlag: "AXR",
+                    flow: false,
+                    yieldTo: []
+                }
+            ]
+        },
+        {
+            id: 9,
+            type: "vehicleLane",
+            name : "Westbound",
+            anchors: [ 12, 13, 2, 3 ],
+            controller: 3,
+            rules: [
+                {
+                    id: 0,
+                    lightFlag: "XXR",
+                    flow: false,
+                    yieldTo: []
+                },
+                {
+                    id: 1,
+                    lightFlag: "XXG",
+                    flow: true,
+                    yieldTo: []
+                },
+                {
+                    id: 2,
+                    lightFlag: "XXY",
+                    flow: true,
+                    yieldTo: []
+                }
+            ]
+        },
+        {
+            id: 10,
+            type: "vehicleLane",
+            name : "Southeast Bound",
+            anchors: [ 12, 13, 14, 15 ],
+            controller: 3,
+            rules: [
+                {
+                    id: 0,
+                    lightFlag: "XRX",
+                    flow: false,
+                    yieldTo: []
+                },
+                {
+                    id: 1,
+                    lightFlag: "XGX",
+                    flow: true,
+                    yieldTo: []
+                },
+                {
+                    id: 2,
+                    lightFlag: "XYX",
+                    flow: true,
+                    yieldTo: []
+                },
+                {
+                    id: 3,
+                    lightFlag: "XAX",
+                    flow: true,
+                    yieldTo: [
+                        //TODO
+                    ]
+                }
+            ]
+        },
+        {
+            id: 11,
+            type: "vehicleLane",
+            name : "Northeast Bound",
+            anchors: [ 12, 13, 6, 7 ],
+            controller: 3,
             rules: [
                 {
                     id: 0,
