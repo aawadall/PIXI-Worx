@@ -3,13 +3,13 @@ const Traffic = function (_width, _height) {
     this.renderer.backgroundColor = 0x555555;
     document.body.appendChild(this.renderer.view);
 
-    /*
+
     this.stage = new PIXI.Stage(); // nominated for removal
-    */
+
 
     this.scene = new PIXI.Container();
-    this.renderer.render(this.scene);
-    requestAnimationFrame(this.renderer);
+    //this.renderer.render(this.scene);
+    //requestAnimationFrame(this.renderer);
     // setup Physics simulation
     this.world = new p2.World({
         gravity: [0, 0],
@@ -43,9 +43,9 @@ Traffic.prototype = {
                     // Draw Lanes
                     let laneSprite = new PIXI.Graphics();
                     laneSprite.lineStyle(laneWidth, laneColor, laneAlpha);
-                    laneSprite.position = laneStart.location;
+                    laneSprite.moveTo(laneStart.location.x, laneStart.location.y);
                     laneSprite.lineTo(laneEnd.x, laneEnd.y);
-                    this.scene.appendChild(laneSprite);
+                    this.stage.appendChild(laneSprite);
                     //this.stage.addChild(walls);
                     //
                     laneStart = laneEnd;
