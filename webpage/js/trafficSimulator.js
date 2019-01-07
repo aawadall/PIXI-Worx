@@ -7,8 +7,8 @@ const Traffic = function (_width, _height) {
     this.stage = new PIXI.Stage(); // nominated for removal
     */
 
-    const scene = new PIXI.Container();
-    this.renderer.render(scene);
+    this.scene = new PIXI.Container();
+    this.renderer.render(this.scene);
     requestAnimationFrame(this.renderer);
     // setup Physics simulation
     this.world = new p2.World({
@@ -32,11 +32,22 @@ Traffic.prototype = {
         // Each lane is are made of lines connecting two anchor points
         const anchors = roadNetwork.anchorPoints;
         const lanes = roadNetwork.lanes;
+        const laneWidth = 30;
+        const laneColor = 0x000000;
+        const laneAlpha = 1.0;
+
         lanes.forEach( lane => {
                 let laneStart = anchors[lane.anchors[0]];
                 for(let idx=1; idx < lane.anchors.length; idx++ ) {
                     let laneEnd = anchors[lane.anchors[idx]];
-                    // Do Something
+                    // Draw Lanes
+                    let laneSprite = new PIXI.Graphics();
+                    laneSprite.lineStyle(laneWidth, laneColor, laneAlpha);
+                    laneSprite.position = laneStart.location;
+                    laneSprite.lineTo(laneEnd.x, laneEnd.y);
+                    this.scene.appendChild(laneSprite);
+                    //this.stage.addChild(walls);
+                    //
                     laneStart = laneEnd;
                 }
             }
