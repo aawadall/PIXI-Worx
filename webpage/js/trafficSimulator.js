@@ -23,7 +23,8 @@ Traffic.prototype = {
         this.buildRoadNetwork();
         this.buildControllers();
         this.initCars();
-        this.renderer.render(this.scene);
+
+        requestAnimationFrame(this.tick.bind(this));
     },
 
     // Given Road Configuration object, define roads
@@ -47,7 +48,7 @@ Traffic.prototype = {
                     laneSprite.lineTo(laneEnd.x, laneEnd.y);
                     laneSprite.fillColor = laneColor;
                     this.scene.addChild(laneSprite);
-                    this.renderer.render(this.scene);
+
                     //
                     laneStart = laneEnd;
                 }
@@ -59,5 +60,10 @@ Traffic.prototype = {
     },
     initCars: function () {
         // TODO
+    },
+
+    tick : function () {
+        this.renderer.render(this.scene);
+        requestAnimationFrame(this.tick.bind(this));
     }
 };
