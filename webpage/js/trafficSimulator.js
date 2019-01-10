@@ -1,5 +1,5 @@
 const Traffic = function (_width, _height) {
-    this.controllers = [];
+    this.controllers = new Array();
     this.renderer = new PIXI.CanvasRenderer(_width, _height);
     this.renderer.backgroundColor = 0x555555;
     document.body.appendChild(this.renderer.view);
@@ -80,7 +80,7 @@ Traffic.prototype = {
         const trafficLightRadious = 4;
 
         controllers.forEach(controller => { // Each traffic light
-
+            console.log("New Controller");
             let toAdd = controller;
             let currentState = [];
 
@@ -88,11 +88,15 @@ Traffic.prototype = {
                 currentState[d.id] = 0
             );
             toAdd.currentState = currentState;
+            console.log("ANCHOR (X,Y) = (" +
+                anchors[toAdd.anchor].location.x + "," +
+                anchors[toAdd.anchor].location.y + ")"
+            );
+            toAdd.position = {};
             toAdd.position.x = anchors[toAdd.anchor].location.x;
             toAdd.position.y = anchors[toAdd.anchor].location.y;
-
-            this.controllers.add(toAdd);
-
+            console.log("SAFE");
+            this.controllers += toAdd;
 
         });
         // Render Controllers
