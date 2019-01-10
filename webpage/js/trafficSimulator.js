@@ -1,5 +1,5 @@
 const Traffic = function (_width, _height) {
-    console.log("DEBUG (Traffic) : Initialize");
+    this.controllers = [];
     this.renderer = new PIXI.CanvasRenderer(_width, _height);
     this.renderer.backgroundColor = 0x555555;
     document.body.appendChild(this.renderer.view);
@@ -20,6 +20,7 @@ const Traffic = function (_width, _height) {
 
 };
 
+
 Traffic.prototype = {
     build: function () {
         this.buildRoadNetwork();
@@ -39,7 +40,6 @@ Traffic.prototype = {
         const laneColor = 0x000000;
         const laneAlpha = 1.0;
 
-        console.log("DEBUG (buildRoadNetwork)");
         lanes.forEach( lane => {
 
                 let laneStart = anchors[lane.anchors[0]];
@@ -53,10 +53,6 @@ Traffic.prototype = {
                     laneSprite.lineTo(laneEnd.location.x, laneEnd.location.y);
                     laneSprite.fillColor = laneColor;
 
-
-                    console.log("Line From (X,Y) : (" + laneStart.location.x + "," + laneStart.location.y + ")");
-                    console.log("Line To (X,Y) : (" + laneEnd.location.x + "," + laneEnd.location.x + ")");
-
                     this.scene.addChild(laneSprite);
 
                     //
@@ -67,6 +63,21 @@ Traffic.prototype = {
     },
     buildControllers : function () {
         // TODO
+        const anchors = roadNetwork.anchorPoints;
+        const controllers = roadNetwork.controllers;
+
+        controllers.forEach(controller => { // Each traffic light
+
+            let toAdd = controller;
+            let currentState = [];
+            toAdd.directions.forEach( d =>
+                currentState[d.id] = 0
+            );
+            toAdd.currentState = currentState;
+            this.controllers.add(toAdd);
+
+        });
+
     },
     initCars: function () {
         // TODO
