@@ -145,12 +145,48 @@ const roadNetwork = {
                 x: 590,
                 y: 720
             }
+        },
+        {
+            id: 16,
+            type: "corner",
+            name: "Southeast corner",
+            location: {
+                x: 620,
+                y: 380
+            }
+        },
+        {
+            id: 17,
+            type: "corner",
+            name: "Northeast corner",
+            location: {
+                x: 620,
+                y: 350
+            }
+        },
+        {
+            id: 18,
+            type: "corner",
+            name: "Northwest corner",
+            location: {
+                x: 580,
+                y: 350
+            }
+        },
+        {
+            id: 19,
+            type: "corner",
+            name: "Soutwest corner",
+            location: {
+                x: 580,
+                y: 380
+            }
         }
     ],
     controllers: [
         {
             id: 0,
-            anchor: 1,
+            anchor: 16,
             name: "Northbound Traffic Controller",
             type: "vehicleTrafficLight",
             states: [
@@ -203,7 +239,7 @@ const roadNetwork = {
         },
         {
             id: 1,
-            anchor: 5,
+            anchor: 17,
             name: "Westbound Traffic Controller",
             type: "vehicleTrafficLight",
             states: [
@@ -256,7 +292,7 @@ const roadNetwork = {
         },
         {
             id: 2,
-            anchor: 9,
+            anchor: 18,
             name: "Southbound Traffic Controller",
             type: "vehicleTrafficLight",
             states: [
@@ -309,7 +345,7 @@ const roadNetwork = {
         },
         {
             id: 3,
-            anchor: 13,
+            anchor: 19,
             name: "Eastbound Traffic Controller",
             type: "vehicleTrafficLight",
             states: [
