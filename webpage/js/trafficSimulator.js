@@ -70,14 +70,23 @@ Traffic.prototype = {
 
             let toAdd = controller;
             let currentState = [];
+
             toAdd.directions.forEach( d =>
                 currentState[d.id] = 0
             );
             toAdd.currentState = currentState;
+            toAdd.position.x = anchors[toAdd.anchor].location.x;
+            toAdd.position.y = anchors[toAdd.anchor].location.y;
+
             this.controllers.add(toAdd);
 
-        });
 
+        });
+        // Render Controllers
+        this.renderControllers();
+    },
+    renderControllers : function() {
+      // TODO
     },
     initCars: function () {
         // TODO
