@@ -35,7 +35,7 @@ const roadNetwork = {
             name: "East Sink",
             location: {
                 x: 1200,
-                t: 370
+                y: 370
             }
         },
         {

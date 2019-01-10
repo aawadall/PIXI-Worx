@@ -35,12 +35,13 @@ Traffic.prototype = {
         // Each lane is are made of lines connecting two anchor points
         const anchors = roadNetwork.anchorPoints;
         const lanes = roadNetwork.lanes;
-        const laneWidth = 10;
+        const laneWidth = 15;
         const laneColor = 0x000000;
         const laneAlpha = 1.0;
 
         console.log("DEBUG (buildRoadNetwork)");
         lanes.forEach( lane => {
+
                 let laneStart = anchors[lane.anchors[0]];
                 for(let idx=1; idx < lane.anchors.length; idx++ ) {
                     let laneEnd = anchors[lane.anchors[idx]];
