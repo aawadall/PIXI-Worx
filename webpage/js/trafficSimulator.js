@@ -66,6 +66,19 @@ Traffic.prototype = {
         const anchors = roadNetwork.anchorPoints;
         const controllers = roadNetwork.controllers;
 
+        // Rendering data
+        const trafficPlateColor = 0x0F0F00;
+        const dimTrafficLightColor = 0x010101;
+        const stateColor = [
+            0xFF0000, // R
+            0x00FF00, // G
+            0xFFFF00, // Y
+            dimTrafficLightColor, // X
+            dimTrafficLightColor // A
+        ];
+        const trafficPlateThickness = 10;
+        const trafficLightRadious = 4;
+
         controllers.forEach(controller => { // Each traffic light
 
             let toAdd = controller;
@@ -83,11 +96,52 @@ Traffic.prototype = {
 
         });
         // Render Controllers
-        this.renderControllers();
+        let index = 0;
+        this.controllerSprites = [];
+        // for each controller
+        this.controllers.forEach(c => {
+
+            this.controllerSprites[index] = PIXI.Graphics(); // Create new object
+
+            // for each direction : draw a rectangle, always move to right
+            const plateHeight = c.states.length * trafficPlateThickness;
+            const plateWidth = c.directions.length * trafficPlateThickness;
+
+            this.controllerSprites[index].beginFill(trafficPlateColor, 1);
+            this.controllerSprites[index].drawRect( c.position.x,
+                                                    c.position.y,
+                                                    plateWidth,
+                                                    plateHeight);
+
+            let dIndex = 0;
+            c.directions.forEach(d => {
+                let sIndex = 0;
+                c.states.forEach( s => {
+                    if (c.currentState[dIndex] == sIndex) {
+                        this.controllerSprites[index].beginFill(stateColor[sIndex]);
+                    }
+                    else
+                    {
+                        this.controllerSprites[index].beginFill(dimTrafficLightColor);
+                    }
+
+                    this.controllerSprites[index].drawCircle(c.position.x + (trafficPlateThickness /2) + (dIndex * trafficPlateThickness),
+                                                             c.position.y + (trafficPlateThickness / 2) + (sIndex * trafficPlateThickness),
+                                                                trafficLightRadious);
+                    sIndex++;
+                });
+                dIndex++;
+            });
+            this.scene.addChild(this.controllerSprites[index]);
+
+        index++;
+        });
     },
-    renderControllers : function() {
-      // TODO
-    },
+
+
+
+
+
     initCars: function () {
         // TODO
     },
