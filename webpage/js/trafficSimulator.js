@@ -45,6 +45,7 @@ Traffic.prototype = {
                     laneSprite.lineStyle(laneWidth, laneColor, laneAlpha);
                     laneSprite.moveTo(laneStart.location.x, laneStart.location.y);
                     laneSprite.lineTo(laneEnd.x, laneEnd.y);
+                    laneSprite.fillColor = laneColor;
                     this.scene.addChild(laneSprite);
                     this.renderer.render(this.scene);
                     //
