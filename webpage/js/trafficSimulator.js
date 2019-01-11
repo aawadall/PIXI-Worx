@@ -56,14 +56,20 @@ Traffic.prototype = {
                         laneStart.location.y !== laneEnd.location.y
                     )
                     {
-                        console.log("arc");
+                        console.log("arc R:" + (
+                            Math.abs(laneStart.location.x - laneEnd.location.x) +
+                            Math.abs(laneStart.location.y - laneEnd.location.y)
+                        )/2);
+                        //laneSprite.moveTo(0, 0);
                         // in case of diagonal, cerate arc
                         laneSprite.arcTo(
-                            laneStart.location.x, laneStart.location.y,
-                            laneEnd.location.x, laneEnd.location.y,
+                            laneStart.location.x,
+                            laneStart.location.y,
+                            laneEnd.location.x,
+                            laneEnd.location.y,
                             (
-                                Math.sqrt((laneStart.location.x - laneEnd.location.x)*(laneStart.location.x - laneEnd.location.x)) +
-                                Math.sqrt((laneStart.location.y - laneEnd.location.y)*(laneStart.location.y - laneEnd.location.y))
+                                Math.abs(laneStart.location.x - laneEnd.location.x) +
+                                Math.abs(laneStart.location.y - laneEnd.location.y)
                             )/2
                         );
                     }
