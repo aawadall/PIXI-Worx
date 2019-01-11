@@ -37,8 +37,9 @@ Traffic.prototype = {
         // Each lane is are made of lines connecting two anchor points
         const anchors = roadNetwork.anchorPoints;
         const lanes = roadNetwork.lanes;
-        const laneWidth = 10;
+        const laneWidth = 5;
         const laneColor = 0x000000;
+        let arcColor = 0xF0F000;
         const laneAlpha = 1.0;
 
         lanes.forEach( lane => {
@@ -49,38 +50,48 @@ Traffic.prototype = {
 
                     // Draw Lanes
                     let laneSprite = new PIXI.Graphics();
-                    laneSprite.lineStyle(laneWidth, laneColor, laneAlpha);
-                    laneSprite.moveTo(laneStart.location.x, laneStart.location.y);
+
+
                     if (
                         laneStart.location.x !== laneEnd.location.x &&
                         laneStart.location.y !== laneEnd.location.y
                     )
                     {
+                        laneSprite.moveTo(laneStart.location.x, laneStart.location.y);
+                        laneSprite.lineStyle(laneWidth, arcColor, laneAlpha);
+
                         console.log("arc R:" + (
                             Math.abs(laneStart.location.x - laneEnd.location.x) +
                             Math.abs(laneStart.location.y - laneEnd.location.y)
                         )/2);
                         //laneSprite.moveTo(0, 0);
+                        //laneSprite.moveTo(laneEnd.location.x, laneEnd.location.y);
                         // in case of diagonal, cerate arc
                         laneSprite.arcTo(
-                            laneStart.location.x,
+                            laneEnd.location.x,
                             laneStart.location.y,
                             laneEnd.location.x,
                             laneEnd.location.y,
                             (
                                 Math.abs(laneStart.location.x - laneEnd.location.x) +
-                                Math.abs(laneStart.location.y - laneEnd.location.y)
-                            )/2
+                                Math.abs(laneStart.location.y - laneEnd.location.y)) /2
                         );
+                        laneSprite.fillColor = arcColor;
+                        //arcColor += 0xF;
+                        this.scene.addChild(laneSprite);
                     }
                     else
                     {
+                        laneSprite.lineStyle(laneWidth, laneColor, laneAlpha);
+                        laneSprite.moveTo(laneStart.location.x, laneStart.location.y);
                         // in case of adjacent, create line
                         laneSprite.lineTo(laneEnd.location.x, laneEnd.location.y);
+                        laneSprite.fillColor = laneColor;
+                        this.scene.addChild(laneSprite);
                     }
-                    laneSprite.fillColor = laneColor;
 
-                    this.scene.addChild(laneSprite);
+
+
 
                     //
                     laneStart = laneEnd;
