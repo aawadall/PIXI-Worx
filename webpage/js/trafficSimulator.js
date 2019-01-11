@@ -37,7 +37,7 @@ Traffic.prototype = {
         // Each lane is are made of lines connecting two anchor points
         const anchors = roadNetwork.anchorPoints;
         const lanes = roadNetwork.lanes;
-        const laneWidth = 15;
+        const laneWidth = 10;
         const laneColor = 0x000000;
         const laneAlpha = 1.0;
 
@@ -56,15 +56,16 @@ Traffic.prototype = {
                         laneStart.location.y !== laneEnd.location.y
                     )
                     {
+                        console.log("arc");
                         // in case of diagonal, cerate arc
                         laneSprite.arcTo(
                             laneStart.location.x, laneStart.location.y,
                             laneEnd.location.x, laneEnd.location.y,
                             (
-                                Math.abs(laneStart.location.x - laneEnd.location.x) +
-                                Math.abs(laneStart.location.y - laneEnd.location.y)
+                                Math.sqrt((laneStart.location.x - laneEnd.location.x)*(laneStart.location.x - laneEnd.location.x)) +
+                                Math.sqrt((laneStart.location.y - laneEnd.location.y)*(laneStart.location.y - laneEnd.location.y))
                             )/2
-                        )
+                        );
                     }
                     else
                     {
