@@ -50,7 +50,26 @@ Traffic.prototype = {
                     let laneSprite = new PIXI.Graphics();
                     laneSprite.lineStyle(laneWidth, laneColor, laneAlpha);
                     laneSprite.moveTo(laneStart.location.x, laneStart.location.y);
-                    laneSprite.lineTo(laneEnd.location.x, laneEnd.location.y);
+                    if (
+                        laneStart.location.x !== laneEnd.location.x &&
+                        laneStart.location.y !== laneEnd.location.y
+                    )
+                    {
+                        // in case of diagonal, cerate arc
+                        laneSprite.arcTo(
+                            laneStart.location.x, laneStart.location.y,
+                            laneEnd.location.x, laneEnd.location.y,
+                            (
+                                Math.abs(laneStart.location.x - laneEnd.location.x) +
+                                Math.abs(laneStart.location.y - laneEnd.location.y)
+                            )/2
+                        )
+                    }
+                    else
+                    {
+                        // in case of adjacent, create line
+                        laneSprite.lineTo(laneEnd.location.x, laneEnd.location.y);
+                    }
                     laneSprite.fillColor = laneColor;
 
                     this.scene.addChild(laneSprite);
