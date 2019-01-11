@@ -24,7 +24,8 @@ const Traffic = function (_width, _height) {
 Traffic.prototype = {
     build: function () {
         this.buildRoadNetwork();
-        this.buildControllers();
+        // disable build Controllers to test curved lanes
+        //this.buildControllers();
         this.initCars();
 
         requestAnimationFrame(this.tick.bind(this));
